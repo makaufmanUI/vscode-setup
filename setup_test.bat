@@ -27,7 +27,7 @@ echo Test setup complete! Check the %TEST_DIR% directory.
 set /p DELCONFIRM=Do you want to delete the setup folder? (y/n):
 if /i "%DELCONFIRM%"=="y" (
     cd ..
-    rmdir /S /Q "vscode-setup"
+    rmdir /s /q "vscode-setup"
     echo Test setup folder deleted.
 ) else (
     echo Test setup folder retained.
