@@ -1,0 +1,387 @@
+{
+
+    // Color & Font Customization
+    "editor.tokenColorCustomizations": {
+
+        // Customization specific to the "GitHub Dark" theme
+        "[GitHub Dark]": {
+            "textMateRules": [
+                {   // All Languages - Green-text elements
+                    "scope": [
+                        "entity.name.namespace",                                // Namespace & module names ( e.g. ["std"::vector] in C++, "os." in Python )
+                        "entity.name.type.class",                               // Class names ( e.g. [std::"vector"] in C++, [class "SomeClass"] in Python )
+                        "entity.name.type.cpp",
+                    ],  "settings": { "foreground": "#4EC9B0" },
+                },
+                {   // Python - Blue-text elements
+                    "scope": [
+                        "variable.other.constant",                              // Constants ( e.g. "CONST = 5" )
+                        "constant.character.escape.python",                     // Escape characters ( e.g. "\n", "\t" )
+                        "constant.character.format.placeholder.other.python",   // Format placeholders ( e.g. "%s", "%d" )
+                    ],  "settings": { "foreground": "#66A3E7" },
+                },
+                {   // Python - Blue-text & italic-fonstyle elements
+                    "scope": [
+                        "storage.type.class.python",                            // Class-definition "class" keyword ( e.g. "class" SomeClass )
+                        "storage.type.function.python",                         // Function-definition "def" keyword ( e.g. "def" SomeFunction )
+                    ],  "settings": { "fontStyle": "italic", "foreground": "#66A3E7" },
+                },
+                {
+                    "scope": [
+                        "source.python",
+                        "source.json.comments",
+                    ],  "settings": { "foreground": "#FFFFFF" },    // old: #E1E4E8
+                }
+            ]
+        },
+
+
+        // GLOABL Customization - aapplies to all themes
+        "textMateRules": [
+            {   // Python comments - Text color & fontstyle of ["""] docstring/block comment initializers & terminators
+                "scope": [
+                    "punctuation.definition.string.end.python",
+                    "punctuation.definition.string.begin.python",
+                ],  "settings": { "fontStyle": "", "foreground": "#96d5ff" },
+            },
+            {   // Python comments - Color & fontstyle for text enclosed in ["""] docstring/block comment initializers & terminators
+                "scope": "string.quoted.docstring.multi.python",
+                "settings": { "fontStyle": "italic", "foreground": "#96d5ff" },
+            },
+            {   // All other comments - Text color & fontstyle of comment initializers ( "//", "/* */", "/** **/" in C++, "#" in Python, "--" in LUA )
+                "scope": "punctuation.definition.comment",
+                "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+            },
+            {   // All other comments - Color & fontstyle for text following (or enclosed in) comment initializers
+                "scope": "comment",
+                "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+            },
+        ],
+
+    },
+
+
+
+    
+    // C++ settings
+    "C_Cpp.default.cppStandard": "c++20",                       // C++ default standard (version), used for intellisense in the editor
+    "C_Cpp.default.includePath": [                              // C++ include paths for intellisense in the editor
+        "${workspaceFolder}/**",                                    // All files in the workspace folder
+        "${vcpkgRoot}/x64-windows/include",                         // All files in the vcpkg include folder (64-bit)
+        "${vcpkgRoot}/x86-windows/include",                         // All files in the vcpkg include folder (32-bit)
+        "I:/!!!CppCode/_libraries_",                                // All files in the "_libraries_" folder on the I: drive
+        "I:/!!!CppCode/_libraries_/**",                             // All files in all subfolders of the "_libraries_" folder on the I: drive
+        "I:/msys64/mingw64",                                        // All files in the mingw64 folder on the I: drive
+        // "I:/msys64/mingw64/**",                                     // All files in all subfolders of the mingw64 folder on the I: drive
+        "I:/msys64/mingw64/include",                                // All files in the mingw64/include folder on the I: drive
+        // "I:/msys64/mingw64/include/**",                             // All files in all subfolders of the mingw64/include folder on the I: drive
+    ],
+    "C_Cpp.inlayHints.parameterNames.enabled": true,            // Shows inlay hints for parameter names in function calls
+    "C_Cpp.inlayHints.referenceOperator.enabled": true,         // Includes the reference operator ("&") in inlay hints for function call parameters
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,      // Shows inlay hints for variable types in variable declarations that use the "auto" keyword
+    "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,   // Specifies that the shown variable types for "auto" ^ show on the left side of the variable name
+    "editor.inlayHints.fontSize": 13,                           // Font size to use for inlay hints
+    "editor.inlayHints.fontFamily": "Courier Prime Code",       // Font family to use for inlay hints
+
+
+
+
+    // Python settings
+    "[python]": { "editor.formatOnType": true },                // Formats code on typing in Python files ?
+    "notebook.output.textLineLimit": 100,                       // Maximum number of lines to display in Jupyter notebook outputs
+
+
+
+
+    // LUA settings
+    "Lua.diagnostics.globals": [ "class" ],                     // Global variables to tell the LUA extension exist
+    "Lua.workspace.library": [
+        "c:\\Users\\Matt\\.vscode\\extensions\\ketho.wow-api-0.14.1\\EmmyLua\\API",
+        "c:\\Users\\Matt\\.vscode\\extensions\\ketho.wow-api-0.14.1\\EmmyLua\\Optional"
+    ],
+
+
+
+
+    // MATLAB settings
+    "matlab.matlabpath": "F:\\Program Files\\MATLAB\\R2022b\\bin\\matlab.exe",          // Path to the MATLAB executable
+    "matlab.mlintpath": "F:\\Program Files\\MATLAB\\R2022b\\bin\\win64\\mlint.exe",     // Path to the MATLAB linter executable
+
+
+
+
+    // Arduino settings
+    "arduino.ignoreBoards": [ ],                                            // Boards to ignore in the Arduino extension
+    "arduino.path": "C:\\Users\\Matt\\Documents\\arduino-nightly",          // Path to the Arduino IDE installation directory
+    "arduino.additionalUrls": [                                             // Additional board URLs to add to the Arduino extension
+        "https://arduino.esp8266.com/stable/package_esp8266com_index.json"      // ESP8266
+    ],
+
+
+
+
+    // Workbench settings
+    "workbench.colorTheme": "GitHub Dark",                      // Theme for the editor
+    "workbench.iconTheme": "material-icon-theme",               // Theme for icons (folders, files, etc.)
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#71f96c",                        // Color of the line drawn on the bottom of the active tab
+        "tab.activeBorderTop": "#71f96c",                     // Color of the line drawn on the top of the active tab
+        "tab.hoverBackground": "#ffffff0e",                   // Background color of tabs when hovered
+        "editorInlayHint.foreground": "#e6edf36e",            // Color of the inlay hints text
+        "editorInlayHint.background": "#e6edf307",            // Background color of the inlay hints text
+    },
+
+
+
+
+    // Editor font settings
+    "editor.fontLigatures": false,                              // Disables font ligatures in the editor
+    "editor.fontFamily": "JetBrains Mono NL",                   // Family of the font used in the editor
+
+
+
+
+    // Other editor settings
+    "editor.lineHeight": 1.8,                                   // Line height in the editor (higher = more space between lines)
+    "editor.letterSpacing": 0.1,                                // Spacing between letters in the editor (higher = more space between letters)
+    "editor.inlineSuggest.enabled": true,                       // Enables inline suggestions in the editor
+    "editor.unicodeHighlight.includeStrings": false,            // Disables the highlighting of unicode characters that appear in strings
+    "editor.unicodeHighlight.allowedCharacters": { },           // Defines specific unicode characters that should be ignored for highlighting in the editor
+    "editor.unicodeHighlight.ambiguousCharacters": false,       // Disables the highlighting of "ambiguous" unicode characters in the editor
+
+
+
+
+    // Terminal settings
+    "terminal.integrated.fontSize": 13,                                 // Font size in the terminal
+    "terminal.integrated.letterSpacing": 0.1,                           // Spacing between letters in the terminal
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",     // Default terminal profile
+    "terminal.integrated.profiles.windows": {                           // All terminal profiles
+        "Git Bash": { "source": "Git Bash" },
+        "PowerShell": { "source": "PowerShell", "icon": "terminal-powershell" },
+        "Command Prompt": { "args": [], "icon": "terminal-cmd", "path": "C:\\Windows\\System32\\cmd.exe" },
+    },
+
+
+
+
+    // Explorer settings
+    "explorer.confirmDelete": false,                            // Disables the confirmation dialog in the explorer when deleting files
+    "explorer.confirmDragAndDrop": false,                       // Disables the confirmation dialog in the explorer when dragging and dropping files
+
+
+
+
+    // Code Runner settings
+    "code-runner.runInTerminal": true,                          // Runs code in the terminal
+    "code-runner.saveFileBeforeRun": true,                      // Saves files before running them
+    "code-runner.clearPreviousOutput": true,                    // Clears the previous output in the terminal before running new code
+    "code-runner.executorMap": {                                // Code Runner language-specific commands for running code
+        "csharp": "cd $dir && dotnet $fileName",
+        "cpp": "cd $dir && g++ -std=c++20 -I I:/!!!CppCode/_libraries_ -I I:/msys64/mingw64/include -L I:/msys64/mingw64/lib -o $fileNameWithoutExt *.cpp && $dir$fileNameWithoutExt",
+    },
+    "code-runner.executorMapByFileExtension": {                 // Code Runner file-specific commands for running code
+        ".vsh": "v run",                                                // OpenGL graphics file
+        ".ahk": "autohotkey",                                           // For the AutoHotkey software scripting language
+        ".lua": "cls && lua $fileName",                                 // For the LUA scripting language
+        ".csproj": "dotnet run --project",                              // C# project file
+        ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",    // Related to GNU Make files
+    },
+
+
+
+
+    // Github Copilot settings
+    "editor.lightbulb.enabled": "off",                          // Hides the Github Copilot stars icon in the editor (completely)
+    // "editor.lightbulb.enabled": "onCode",                    // Hides the Github Copilot stars icon in the ediotr (only until some text is present on a line)
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "c#": true,
+        "lua": true,
+        "css": true,
+        "c++": true,
+        "cpp": false,
+        "html": true,
+        "rust": true,
+        "ruby": true,
+        "yaml": false,
+        "swift": true,
+        "matlab": true,
+        "python": true,
+        "solidity": true,
+        "javascript": true
+    },
+
+
+
+
+    // Other settings
+    "files.defaultLanguage": "batch",                           // Default language for new files
+    "security.workspace.trust.untrustedFiles": "open",
+    "pymakr.devices.configs": {
+        "serial://COM1": {
+            "autoConnect": "onLostConnection",
+            "name": "",
+            "username": "micro",
+            "password": "python",
+            "hidden": false,
+            "rootPath": null,
+            "adapterOptions": {}
+        },
+        "0001": {
+            "autoConnect": "onLostConnection",
+            "username": "micro",
+            "password": "python",
+            "hidden": false,
+            "rootPath": "/",
+            "adapterOptions": {}
+        }
+    },
+    "github.copilot.editor.enableAutoCompletions": true, // Automatically trust untrusted files in the workspace
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    // LANGUAGE-SPECIFIC COMMENT COLORS //
+
+    // {   // JSON comments
+    //     "scope": [
+    //         "punctuation.definition.comment.json.comments",                     // Color of the double-slash ( "//" )
+    //         "comment.line.double-slash.js",                                     // Color of the text following the double-slash ( // "comment" )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+
+    // {   // C++ inline comments
+    //     "scope": [
+    //         "punctuation.definition.comment.cpp",                               // Color of the double-slash ( "//" )
+    //         "comment.line.double-slash.cpp",                                    // Color of the text following the double-slash ( // "comment" )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+    // {   // C++ block comments
+    //     "scope": [
+    //         "punctuation.definition.comment.begin.cpp",                         // Color of the opening initializer ( "/*" comment */ )
+    //         "punctuation.definition.comment.end.cpp",                           // Color of the closing initializer ( /* comment "*/" )
+    //         "comment.block.cpp",                                                // Color of the text enclosed in the block ( /* "comment" */ )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+    // {   // C++ "documentation" block comments
+    //     "scope": [
+    //         "punctuation.definition.comment.begin.documentation.cpp",           // Color of the opening initializer ( "/***" comment ***/ )
+    //         "punctuation.definition.comment.end.documentation.cpp",             // Color of the closing initializer ( /*** comment "***/" )
+    //         "comment.block.documentation.cpp",                                  // Color of the text enclosed in the block ( /*** "comment" ***/ )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+
+    // {   // Python inline comments
+    //     "scope": [
+    //         "punctuation.definition.comment.python",                            // Color of the hashtag ( "#" comment )
+    //         "comment.line.number-sign.python",                                  // Color of the text following the hashtag ( # "comment" )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+    
+    // {   // LUA inline comments
+    //     "scope": [
+    //         "punctuation.definition.comment.lua",                               // Color of the double-hyphen ( "--" comment )
+    //         "comment.line.double-dash.lua",                                     // Color of the text following the double-hyphen ( -- "comment" )
+    //     ],  "settings": { "fontStyle": "italic", "foreground": "#e4f2ff67" },
+    // },
+
+
+
+    // "clangd.detectExtensionConflicts": false,
+    // "clangd.path": "c:\\Users\\Matt\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\17.0.3\\clangd_17.0.3\\bin\\clangd.exe",
+
+
+
+    // "Lua.telemetry.enable": false,                           // Disables telemetry for the LUA extension
+
+
+
+    // "code-runner.executorMap": {                                // Code-runner language-specific commands for running code
+    //     "csharp": "cd $dir && dotnet $fileName",
+    //     "cpp": "cd $dir && g++ -std=c++20 -o $fileNameWithoutExt *.cpp && $dir$fileNameWithoutExt",
+    //     // "cpp": "cd $dir && g++ -std=c++20 -I../../../!!!CppCode/libraries -o $fileNameWithoutExt *.cpp && $dir$fileNameWithoutExt",
+    // },
+
+
+
+    // "code-runner.executorMapByFileExtension": {
+    //     ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
+    //     ".vbs": "cscript //Nologo",
+    //     ".scala": "scala",
+    //     ".jl": "julia",
+    //     ".cr": "crystal",
+    //     ".ml": "ocaml",
+    //     ".exs": "elixir",
+    //     ".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    //     ".rkt": "racket",
+    //     ".scm": "csi -script",
+    //     ".ahk": "autohotkey",
+    //     ".au3": "autoit3",
+    //     ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+    //     ".kts": "kotlinc -script",
+    //     ".dart": "dart",
+    //     ".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    //     ".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    //     ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    //     ".hs": "runhaskell",
+    //     ".nim": "nim compile --verbosity:0 --hints:off --run",
+    //     ".csproj": "dotnet run --project",
+    //     ".fsproj": "dotnet run --project",
+    //     ".lisp": "sbcl --script",
+    //     ".kit": "kitc --run",
+    //     ".v": "v run",
+    //     ".vsh": "v run",
+    //     ".sass": "sass --style expanded",
+    //     ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    //     ".ring": "ring",
+    //     ".sml": "cd $dir && sml $fileName",
+    //     ".lua": "cls && lua $fileName",
+    // },
+
+}
