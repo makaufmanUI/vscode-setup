@@ -1,5 +1,5 @@
 # vscode-setup
-My VSCode configuration. 
+My VSCode configuration. Settings are synced to this GitHub account.
 
 ## Installation
 In an elevated terminal
