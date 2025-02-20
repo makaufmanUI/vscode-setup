@@ -22,4 +22,15 @@ for /f %%e in (extensions.list) do (
 )
 
 echo Test setup complete! Check the %TEST_DIR% directory.
+
+@REM Prompt before deleting the setup folder
+set /p DELCONFIRM=Do you want to delete the setup folder? (y/n):
+if /i "%DELCONFIRM%"=="y" (
+    cd ..
+    rmdir /S /Q "vscode-setup"
+    echo Test setup folder deleted.
+) else (
+    echo Test setup folder retained.
+)
+
 pause
