@@ -1,0 +1,616 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Import numpy": {
+		"prefix": "importn",
+		"body": "import numpy as np\n$0",
+		"description": "Adds import statement for numpy"
+	},
+
+	"Import pandas": {
+		"prefix": "importp",
+		"body": "import pandas as pd\n$0",
+		"description": "Adds import statement for pandas"
+	},
+
+	"Import matplotlib.pyplot": {
+		"prefix": "importm",
+		"body": "import matplotlib.pyplot as plt\n$0",
+		"description": "Adds import statement for matplotlib's pyplot"
+	},
+
+	"Header Comment-Block with Filename": {
+		"prefix": "header",
+		"body": [
+		"'''''''''''''''''''''''''''''''''''''''''''''''''''''",
+		"'                                                   '",
+		"'   ${TM_FILENAME}                                         '",
+		"'                                                   '",
+		"'   ...                                             '",
+		"'                                                   '",
+		"'''''''''''''''''''''''''''''''''''''''''''''''''''''",
+		"",
+		"$0"
+		],
+		"description": "Add a comment-block with a filename\nand a placeholder description (...)\n\n"
+	},
+
+	"if __name__ == \"__main__\": block": {
+		"prefix": "ifname",
+		"body": [
+			"if __name__ == \"__main__\":",
+			"    pass$0",
+		],
+		"description": "Creates a `if __name__ == \"__main__\"` block."
+	},
+
+	"Class property": {
+		"prefix": "prop",
+		"body": [
+			"@property",
+			"def $1(self) -> $2:",
+			"    \"\"\"",
+			"    $0",
+			"    \"\"\"",
+			"    return self._$1",
+		],
+		"description": "Creates a class property block."
+	},
+
+
+	"New File Header": {
+		"prefix": "asdf",
+		"body": [
+			"\"\"\"",
+			"${TM_FILENAME}",
+			"${TM_FILENAME/(.)/~/g}",	// Get the filename and replace all characters with a tilde
+			"{asdf}",
+			"",
+			"Date: ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+			"Path: ${TM_FILEPATH}",
+			"\"\"\"",
+			"import re",
+			"import os",
+			"import sys",
+			"import time",
+			"import json",
+			"import requests",
+			"import datetime",
+			"import numpy as np",
+			"import pandas as pd",
+			"import seaborn as sns",
+			"import matplotlib as mpl",
+			"import scipy.stats as stats",
+			"import matplotlib.pyplot as plt",
+			"from rich.progress import track",
+			"from collections import namedtuple",
+			"from typing import Any, NamedTuple",
+			"from rich.traceback import install",
+			"from rich import print as richprint",
+			"",
+			"install()",
+			// Print a line of dashes equal to the length of the path to the file + 2
+			// "print( '\\n' + '-'  *  ( len('${TM_FILEPATH}') * 2 - 2 ) + '\\n\\n'   )",
+			// "main_ending_print_string = '\\n\\n' + '-'  *  ( len('${TM_FILEPATH}') * 2 - 2 ) + '\\n\\n'",
+			"print( '\\n' + '-' * 100 + '\\n\\n'   )",
+			"main_ending_print_string = '\\n\\n' + '-' * 100 + '\\n\\n'",
+
+			"mpl.rcParams['figure.figsize'] = (14, 8)",
+			"mpl.rcParams['axes.grid'] = True",
+			"mpl.rcParams['grid.alpha'] = 0.5",
+			"mpl.rcParams['grid.linewidth'] = 1.0",
+			"mpl.rcParams['axes.labelpad'] = 20",
+			"mpl.rcParams['axes.labelsize'] = 13",
+			"mpl.rcParams['axes.titlepad'] = 25",
+			"mpl.rcParams['axes.titlesize'] = 16",
+			"mpl.rcParams['axes.titleweight'] = 'bold'",
+			"mpl.rcParams['legend.fontsize'] = 11",
+			"mpl.rcParams['legend.fancybox'] = False",
+			"mpl.rcParams['legend.markerscale'] = 1.5",
+			"mpl.rcParams['legend.borderpad'] = 0.5",
+			"mpl.rcParams['legend.framealpha'] = 1.0",
+			"mpl.rcParams['legend.labelspacing'] = 1.0",
+			"mpl.rcParams['legend.handlelength'] = 1.5",
+			"mpl.rcParams['legend.handleheight'] = 0.5",
+			"",
+			"def rprint(*args, **kwargs):",
+			"    \"\"\"Prints to console with arrow indicator.\"\"\"",
+			"    richprint(f\"[bold red] >>> [/bold red]\", *args, **kwargs)",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"$0",
+			"",
+			"",
+			"",
+			"",
+			"",
+		],
+		"description": "File header for python script"
+	},
+
+
+
+	
+	"New File Header - Imports": {
+		"prefix": "asdfimport",
+		"body": [
+			"\"\"\"",
+			"${TM_FILENAME}",
+			"${TM_FILENAME/(.)/~/g}",
+			"",
+			"Date: ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+			"\"\"\"",
+			"from imports import *",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"$0",
+			"",
+			"",
+			"",
+			"",
+			"",
+		],
+		"description": "File header for python script with imports coming from a file called `imports.py`"
+	},
+
+
+
+
+
+	"New File Header - Main": {
+		"prefix": "asdfmain",
+		"body": [
+			"\"\"\"",
+			"${TM_FILENAME}",
+			"${TM_FILENAME/(.)/~/g}",
+			"",
+			"Date: ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+			"\"\"\"",
+			"from imports import *",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"$0",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"print(main_ending_print_string)",
+		],
+		"description": "File header for python script with imports coming from a file called `imports.py` and a final print statement"
+	},
+
+
+
+
+	"MPL/PLT Last Color": {
+		"prefix": "lastcolor",
+		"body": [
+			"plt.gca().lines[-1].get_color()",
+		],
+		// "body": [
+		// 	"def last_color() -> str:",
+		// 	"    \"\"\"",
+		// 	"    Returns the last color used in a matplotlib plot.",
+		// 	"    \"\"\"",
+		// 	"    import matplotlib.pyplot as plt",
+		// 	"    import matplotlib as mpl",
+		// 	"    import numpy as np",
+		// 	"    ",
+		// 	"    fig, ax = plt.subplots()",
+		// 	"    ax.plot(np.arange(10), np.arange(10))",
+		// 	"    color = ax.lines[-1].get_color()",
+		// 	"    plt.close()",
+		// 	"    return color",
+		// ],
+		"description": "Inserts the code for getting the last color used in a matplotlib plot."
+	},
+
+
+
+
+
+	"New module file": {
+		"prefix": "newmodule",
+		"body": [
+			"\"\"\"",
+			"$1",
+			"",
+			"Created by Matt Kaufman on ${CURRENT_MONTH}-${CURRENT_DATE}-${CURRENT_YEAR} at ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+			"\"\"\"",
+			"THIS_MODULE = __file__.split('\\ '.rstrip())[-1]",
+			"",
+			"",
+			"def classes() -> None:",
+			"    \"\"\"",
+			"    Prints a list of all classes in this module.",
+			"    \"\"\"",
+			"    g = globals()",
+			"    classes_ = [key for key in g if isinstance(g[key], type)]",
+			"    print(f\"\\n\\n    Classes:\")",
+			"    if len(classes_) > 0:",
+			"        print('    '+'-'*(len(max(classes_,key=len))+3)) if len(max(classes_,key=len)) > 8 else print('    '+'-'*8)",
+			"        for class_ in classes_: print(f\"    >> {class_}\")",
+			"        print('    '+'-'*(len(max(classes_,key=len))+3)+'\\n\\n') if len(max(classes_,key=len)) > 8 else print('    '+'-'*8+'\\n\\n')",
+			"    else:",
+			"        print('    '+'-'*(19+len(THIS_MODULE)))",
+			"        print(f\"    >> {THIS_MODULE} has no classes.\")",
+			"        print('    '+'-'*(19+len(THIS_MODULE))+'\\n\\n')",
+			"    return",
+			"",
+			"",
+			"def functions() -> None:",
+			"    \"\"\"",
+			"    Prints a list of all functions in this module.",
+			"    \"\"\"",
+			"    g = globals()",
+			"    functions_ = [key for key in g if callable(g[key]) and not key.startswith('_') and not isinstance(g[key], type)]",
+			"    functions_.remove('classes')",
+			"    functions_.remove('functions')",
+			"    print(f\"\\n\\n    Functions:\")",
+			"    if len(functions_) > 0:",
+			"        print('    '+'-'*(len(max(functions_,key=len))+3)) if len(max(functions_,key=len)) > 7 else print('    '+'-'*10)",
+			"        for function_ in functions_: print(f\"    >> {function_}\") if function_ != \"classes\" and function_ != \"functions\" else None",
+			"        print('    '+'-'*(len(max(functions_,key=len))+3)+'\\n\\n') if len(max(functions_,key=len)) > 7 else print('    '+'-'*10+'\\n\\n')",
+			"    else:",
+			"        print('    '+'-'*(21+len(THIS_MODULE)))",
+			"        print(f\"    >> {THIS_MODULE} has no functions.\")",
+			"        print('    '+'-'*(21+len(THIS_MODULE))+'\\n\\n')",
+			"    return",
+			"",
+			"",
+			"def exception(function) -> None:",
+			"    \"\"\"",
+			"    Function wrapper that handles an `Exception` in a ",
+			"    function or method and prints out the details of it.",
+			"    ",
+			"    Put the `@exception` decorator above the function or method to use it.",
+			"    ",
+			"    >>> @exception",
+			"    >>> def func():",
+			"            ...",
+			"    \"\"\"",
+			"    from inspect import stack",
+			"    from functools import wraps",
+			"    from inspect import getmodule",
+			"    @wraps(function)",
+			"    def wrapper(*args, **kwargs):",
+			"        try:",
+			"            return function(*args, **kwargs)",
+			"        except Exception as e:",
+			"            _exception(e,function,getmodule(stack()[1][0]))",
+			"    return wrapper",
+			"",
+			"",
+			"# ---------------------------------------------------------------------------------------------------------------------- #",
+			"# ---------------------------------------------------------------------------------------------------------------------- #",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"#$0",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"# ---------------------------------------------------------------------------------------------------------------------- #",
+			"# ---------------------------------------------------------------------------------------------------------------------- #",
+			"",
+			"",
+			"def _methods(_class: object) -> None:",
+			"    \"\"\"",
+			"    Handles the `.methods()` function that every class has,",
+			"    as to prevent redefining the same lengthy function in each.",
+			"    \"\"\"",
+			"    name = _class.__name__",
+			"    dict = _class.__dict__",
+			"    methods = [method for method in dict if not method.startswith('__') and callable(dict[method])]",
+			"    methods.remove('methods')",
+			"    methods.remove('properties')",
+			"    if len(methods) > 0:",
+			"        print(f\"\\n\\n    {name} methods:\")",
+			"        print('    '+'-'*(len(max(methods,key=len))+3)) if len(max(methods,key=len)) >= len(name)+9 else print('    '+'-'*(len(name)+9))",
+			"        for method in methods:",
+			"            if method[0] != '_': print(f\"    >> {method}\")",
+			"        print('    '+'-'*(len(max(methods,key=len))+3)+'\\n\\n') if len(max(methods,key=len)) >= len(name)+9 else print('    '+'-'*(len(name)+9)+'\\n\\n')",
+			"    else:",
+			"        print(f\"\\n\\n    {name} has no methods.\\n\\n\")",
+			"    return",
+			"",
+			"",
+			"def _properties(_class: object) -> None:",
+			"    \"\"\"",
+			"    Handles the `.properties()` function that every class has,",
+			"    as to prevent redefining the same lengthy function in each.",
+			"    \"\"\"",
+			"    name = _class.__name__",
+			"    dict = _class.__dict__",
+			"    properties = [method for method in dict if not method.startswith('__') and not callable(dict[method])]",
+			"    if len(properties) > 0:",
+			"        print(f\"\\n\\n    {name} properties:\")",
+			"        print('    '+'-'*(len(max(properties,key=len))+3)) if len(max(properties,key=len)) >= len(name)+12 else print('    '+'-'*(len(name)+12))",
+			"        for prop in properties: print(f\"    >> {prop}\")",
+			"        print('    '+'-'*(len(max(properties,key=len))+3)+'\\n\\n') if len(max(properties,key=len)) >= len(name)+12 else print('    '+'-'*(len(name)+12)+'\\n\\n')",
+			"    else:",
+			"        print(f\"\\n\\n    {name} has no properties.\\n\\n\")",
+			"    return",
+			"",
+			"",
+			"def _exception(e: Exception, func, module) -> None:",
+			"    \"\"\"",
+			"    Handles an `Exception` that occurs in a function or method.",
+			"    Takes the `Exception` as an argument, and prints the following:",
+			"    - The file in which the `Exception` occurred",
+			"    - The line number in the file where the `Exception` occurred",
+			"    - The type of `Exception` that occurred (its class and base class)",
+			"    - The message of the `Exception`",
+			"    \"\"\"",
+			"    exception_class = e.__class__.__name__",
+			"    exception_base  = e.__class__.__base__.__name__",
+			"    exception_file  = module.__file__.split('\\ '.rstrip())[-1]",
+			"    exception_line  = e.__traceback__.tb_frame.f_back.f_lineno",
+			"    exception_func  = func.__name__ if func.__name__ != '<module>' else 'main'",
+			"    in_     = f\">> In:    {exception_file}\"",
+			"    at      = f\">> At:    Line #{exception_line}\" if exception_func == 'main' else \\",
+			"              f\">> At:    Line #{exception_line} (in function `{exception_func}`)\"",
+			"    type_   = f\">> Type:  {exception_base} ({exception_class})\"",
+			"    message = f\">> Message:  {e}\"",
+			"    print('\\n\\nEXCEPTION OCCURRED')",
+			"    print(  '------------------')",
+			"    print(f\"{in_}\\n{at}\\n{type_}\\n\\n{message}\")",
+			"    print(  '------------------\\n\\n')",
+			"    return",
+		],
+		"description": "Creates a new module template."
+	},
+
+
+
+
+
+	"New class (module)": {
+		"prefix": "newclass_module",
+		"body": [
+			"class ${1:ClassName}:",
+			"    \"\"\"",
+			"    Class description.",
+			"    \"\"\"",
+			"    @staticmethod",
+			"    def methods(): _methods(${1:ClassName})",
+			"    @staticmethod",
+			"    def properties(): _properties(${1:ClassName})",
+			"",
+			"    def __init__(self):",
+			"        \"\"\"",
+			"        Constructor description.",
+			"        ",
+			"        Parameters",
+			"        ----------",
+			"        `arg`:   Description.",
+			"        \"\"\"",
+			"        pass$0",
+		],
+		"description": "Creates a new class for use in a module."
+	},
+
+
+
+
+
+	"New class": {
+		"prefix": "newclass",
+		"body": [
+			"class ${1:ClassName}:",
+			"    \"\"\"",
+			"    Class description.",
+			"    \"\"\"",
+			"    def __init__(self):",
+			"        \"\"\"",
+			"        Constructor description.",
+			"        ",
+			"        Parameters",
+			"        ----------",
+			"        `arg`:   Description.",
+			"        \"\"\"",
+			"        pass$0",
+		],
+		"description": "Creates a new class."
+	},
+
+
+
+
+
+	"New class __repr__ method": {
+		"prefix": "newrepr",
+		"body": [
+			"def __repr__(self) -> str:",
+			"    return$0",
+		],
+		"description": "Creates a new repr method for a class."
+	},
+
+
+
+
+
+	"New function": {
+		"prefix": "newfunction",
+		"body": [
+			"def ${1:name}() -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    ",
+			"    Parameters",
+			"    ----------",
+			"    `arg`:   Description.",
+			"    \"\"\"",
+			"    $0",
+			"    return",
+		],
+		"description": "Creates a new function."
+	},
+
+
+
+
+
+	"New @exception function": {
+		"prefix": "newfunction_exception",
+		"body": [
+			"@exception",
+			"def ${1:name}() -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    ",
+			"    Parameters",
+			"    ----------",
+			"    `arg`:   Description.",
+			"    \"\"\"",
+			"    $0",
+			"    return",
+		],
+		"description": "Creates a new function with the @exception decorator."
+	},
+
+
+
+
+
+	"New class method": {
+		"prefix": "newmethod",
+		"body": [
+			"def ${1:name}(self) -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    ",
+			"    Parameters",
+			"    ----------",
+			"    `arg`:   Description.",
+			"    \"\"\"",
+			"    $0",
+			"    return",
+		],
+		"description": "Creates a new method for a class."
+	},
+
+
+
+
+
+	"New static method": {
+		"prefix": "newstaticmethod",
+		"body": [
+			"@staticmethod",
+			"def ${1:name}() -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    ",
+			"    Parameters",
+			"    ----------",
+			"    `arg`:   Description.",
+			"    \"\"\"",
+			"    $0",
+			"    return",
+		],
+		"description": "Creates a new static method for a class."
+	},
+
+
+
+
+
+	"New class property": {
+		"prefix": "newproperty",
+		"body": [
+			"@property",
+			"def ${1:name}(self) -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    \"\"\"",
+			"    return$0",
+		],
+		"description": "Creates a new property for a class."
+	},
+
+
+
+
+
+	"New class property & setter": {
+		"prefix": "newproperty&setter",
+		"body": [
+			"@property",
+			"def ${1:name}(self) -> ${2:type}:",
+			"    \"\"\"",
+			"    Description.",
+			"    \"\"\"",
+			"    return self._${1:name}",
+			"",
+			"@${1:name}.setter",
+			"def ${1:name}(self, value: ${2:type}) -> None:",
+			"    if not isinstance(value, ${2:type}):",
+			"        raise TypeError(f\">> '${1:name}' must be of type <{${2:type}.__name__}>, not <{type(value).__name__}>\")",
+			"    self._${1:name} = value",
+		],
+		"description": "Creates a new property and property-setter for a class."
+	},
+}
